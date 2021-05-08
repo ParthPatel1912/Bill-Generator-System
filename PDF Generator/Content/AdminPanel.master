@@ -1,0 +1,395 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPanel.master.cs" Inherits="PDF_Generator_Content_AdminPanel" %>
+
+<!DOCTYPE html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<html>
+<head runat="server">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="#">
+    <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+
+
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/DataTable/jquery-3.5.1.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/DataTable/jquery.dataTables.min.js") %>"></script>
+
+    <!-- Data Table Css -->
+    <%--<link rel="stylesheet" href="cdn.datatables.net/1.10.24/css/jquery.dataTables.min.html">--%>
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css") %>">
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/pages/data-table/css/buttons.dataTables.min.css") %>">
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css") %>">
+
+    <link rel="icon" href="<%=ResolveClientUrl("~/PDF Generator/Content/img/Untitlged-22.jpg") %>" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/bootstrap/dist/css/bootstrap.min.css") %>">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/icon/themify-icons/themify-icons.css") %>">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/icon/icofont/css/icofont.css") %>">
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/icon/feather/css/feather.css") %>">
+    <!-- fontawesome Awesome -->
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/icon/font-awesome/css/font-awesome.min.css") %>">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/css/style.css") %>">
+    <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/css/jquery.mCustomScrollbar.css") %>">
+    <link rel="stylesheet" href="<%=ResolveClientUrl("~/PDF Generator/Content/assets/scss/partials/menu/_pcmenu.html") %>">
+
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <!-- Pre-loader start -->
+            <div class="theme-loader">
+                <div class="ball-scale">
+                    <div class='contain'>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="frame"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pre-loader end -->
+            <div id="pcoded" class="pcoded">
+                <div class="pcoded-overlay-box"></div>
+                <div class="pcoded-container navbar-wrapper">
+
+                    <nav class="navbar header-navbar pcoded-header">
+                        <div class="navbar-wrapper">
+
+                            <div class="navbar-logo">
+                                <a class="mobile-menu" id="mobile-collapse" href="#!">
+                                    <i class="feather icon-menu"></i>
+                                </a>
+                                <a href="../index.html">
+                                    <%--<img class="img-fluid" src="<%=ResolveClientUrl("~/Admin/assets/images/log.png") %>" alt="Theme-Logo" />--%>
+                                    <h5>Bill Generator</h5>
+                                </a>
+                                <a class="mobile-options">
+                                    <i class="feather icon-more-horizontal"></i>
+                                </a>
+                            </div>
+
+                            <div class="navbar-container">
+                                <ul class="nav-left">
+                                    <li class="header-search">
+                                        <div class="main-search morphsearch-search">
+                                            <div class="input-group">
+                                                <span class="input-group-addon search-close"><i
+                                                    class="feather icon-x"></i></span>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#!" onclick="javascript:toggleFullScreen()">
+                                            <i class="feather icon-maximize full-screen"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav-right">
+
+                                    <li class="user-profile header-notification">
+                                        <div class="dropdown-primary dropdown">
+                                            <div class="dropdown-toggle" data-toggle="dropdown">
+                                                <asp:Image ID="imgProfile" runat="server" class="img-radius" alt="User-Profile-Image" Height="40" Width="40" />
+                                                <span>
+                                                    <asp:Label runat="server" ID="lblDisplayName"></asp:Label>
+                                                </span>
+                                                <i class="feather icon-chevron-down"></i>
+                                            </div>
+                                            <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+
+                                                <li>
+                                                    <a href="../User Profile/UserProfile.aspx">
+                                                        <i class="feather icon-user"></i>Profile
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <i class="feather icon-log-out"></i>
+                                                    <asp:LinkButton ID="lbLogout" runat="server" Text="Logout" OnClick="lbLogout_Click" />
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- Sidebar chat start -->
+
+                    <!-- Sidebar inner chat start-->
+
+                    <!-- Sidebar inner chat end-->
+                    <div class="pcoded-main-container">
+                        <div class="pcoded-wrapper">
+                            <nav class="pcoded-navbar">
+                                <div class="pcoded-inner-navbar main-menu">
+                                    <div class="pcoded-navigatio-lavel">Navigation</div>
+                                    <ul class="pcoded-item pcoded-left-item">
+
+                                        <li class="">
+                                            <a href="../Home/Home.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                                <span class="pcoded-mtext">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../Party/PartyGridViewList.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                                                <span class="pcoded-mtext">Party</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../Category/CategoryGridViewList.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-align-center"></i></span>
+                                                <span class="pcoded-mtext">Category</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../Item/ItemGridViewList.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-list"></i></span>
+                                                <span class="pcoded-mtext">Item</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../BillTeam/BillTeamGridViewList.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-command"></i></span>
+                                                <span class="pcoded-mtext">All Bill</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../User/UserGridViewList.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-unlock"></i></span>
+                                                <span class="pcoded-mtext">User Authentication</span>
+                                            </a>
+                                        </li>
+                                        <li class="pcoded-hasmenu">
+                                            <a href="#">
+                                                <span class="pcoded-micon"><i class="feather icon-server"></i></span>
+                                                <span class="pcoded-mtext">List of Country</span>
+                                            </a>
+                                            <ul class="pcoded-submenu">
+                                                <li class="">
+                                                    <a href="../City/CityGridViewList.aspx">
+                                                        <span class="pcoded-mtext">City</span>
+                                                    </a>
+                                                </li>
+                                                <li class=" ">
+                                                    <a href="../State/StateGridViewList.aspx">
+                                                        <span class="pcoded-mtext">State</span>
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="../Country/CountryGridViewList.aspx">
+                                                        <span class="pcoded-mtext">Country</span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="pcoded-navigatio-lavel">Other Element</div>
+                                    <ul class="pcoded-item pcoded-left-item">
+                                        <li class="">
+                                            <a href="../BillHeader/BillHeaderAddEdit.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                                <span class="pcoded-mtext">Bill Header Add-Edit</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../BillHeader/BillHeaderGridViewList.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-inbox"></i></span>
+                                                <span class="pcoded-mtext">Bill Header</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="../BillTeam/BillTeamAddEdit.aspx">
+                                                <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
+                                                <span class="pcoded-mtext">Bill Team Add-Edit</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="../PDF Bill/PDF Bill.aspx">
+                                                <span class="pcoded-micon"><i
+                                                    class="feather icon-file-minus"></i><b>A</b></span>
+                                                <span class="pcoded-mtext">PDF Bill</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </nav>
+                            <div class="pcoded-content">
+                                <div class="pcoded-inner-content">
+                                    <!-- Main-body start -->
+                                    <div class="main-body">
+                                        <div class="page-wrapper">
+                                            <!-- Page-header start -->
+                                            <div class="page-header">
+                                                <div class="row align-items-end">
+                                                    <div class="col-lg-8">
+                                                        <div class="page-header-title">
+                                                            <div class="d-inline">
+                                                                <h3>
+                                                                    <asp:ContentPlaceHolder ID="cphHeadContent" runat="server">
+                                                                    </asp:ContentPlaceHolder>
+                                                                </h3>
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="page-header-breadcrumb">
+                                                            <ul class="breadcrumb-title">
+
+                                                                <asp:ContentPlaceHolder ID="cphBreadcrum" runat="server">
+                                                                </asp:ContentPlaceHolder>
+
+                                                                <%--<li class="breadcrumb-item" style="float: left;">
+                                                                    <a href="../index.html"><i class="feather icon-home"></i></a>
+                                                                </li>
+                                                                <li class="breadcrumb-item" style="float: left;"><a href="#!">Widget</a> </li>--%>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Page-header end -->
+
+                                            <div class="page-body">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h5>
+                                                                    <asp:ContentPlaceHolder ID="cphCardTitle" runat="server">
+                                                                    </asp:ContentPlaceHolder>
+                                                                </h5>
+                                                                <span>
+                                                                    <asp:ContentPlaceHolder ID="cphError" runat="server">
+                                                                    </asp:ContentPlaceHolder>
+                                                                </span>
+                                                                <div class="card-header-right">
+                                                                    <ul class="list-unstyled card-option">
+                                                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                                                        <li><i class="feather icon-minus minimize-card"></i>
+                                                                        </li>
+                                                                        <li><i class="feather icon-trash-2 close-card"></i></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-block">
+
+                                                                <asp:ContentPlaceHolder ID="cphPageContent" runat="server">
+                                                                </asp:ContentPlaceHolder>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="styleSelector">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/jquery/dist/jquery.min.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/jquery-ui/jquery-ui.min.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/popper.js/dist/umd/popper.min.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/bootstrap/dist/js/bootstrap.min.js") %>"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/jquery-slimscroll/jquery.slimscroll.js") %>"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/modernizr/modernizr.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/modernizr/feature-detects/css-scrollbars.js") %>"></script>
+
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/i18next/i18next.min.js") %>"></script>
+
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js") %>"></script>
+
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js") %>"></script>
+
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/jquery-i18next/jquery-i18next.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/js/pcoded.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/js/vartical-layout.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/js/jquery.mCustomScrollbar.concat.min.js") %>"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/js/new without button/script.js") %>"></script>
+
+
+    <!-- data-table js -->
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net/js/jquery.dataTables.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/pages/data-table/js/jszip.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/pages/data-table/js/pdfmake.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/pages/data-table/js/vfs_fonts.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-buttons/js/buttons.print.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-buttons/js/buttons.html5.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/pages/data-table/js/dataTables.bootstrap4.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js") %>"></script>
+
+    
+    
+    <!-- Custom js -->
+    <script src="<%=ResolveClientUrl("~/PDF Generator/Content/assets/pages/data-table/js/data-table-custom.js") %>"></script>
+
+</body>
+
+</html>
