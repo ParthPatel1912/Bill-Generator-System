@@ -23,7 +23,7 @@ public partial class PDF_Generator_Admin_Panel_BillHeader_BillHeaderAddEdit : Sy
             if (Request.QueryString["ItemID"] != null)
             {
                 SearchItemNameByItemID();
-                lblItemName.Text = "Select &nbsp;item &nbsp;is &nbsp;" + Session["ItemName"].ToString().Trim() + " ....";
+                lblItemName.Text = "Select item is " + Session["ItemName"].ToString().Trim() + " ....";
             }
 
             if (Request.QueryString["BillHeaderID"] == null)

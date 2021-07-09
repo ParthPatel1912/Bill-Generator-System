@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Bill.aspx.cs" Inherits="PDF_Generator_Admin_Panel_PDF_Bill_Bill" %>
+﻿<%@ Page Title="Bill PDF" Language="C#" AutoEventWireup="true" CodeFile="Bill.aspx.cs" Inherits="PDF_Generator_Admin_Panel_PDF_Bill_Bill" %>
 
 <!DOCTYPE html>
 
@@ -71,15 +71,25 @@
         </style>
 
         <script type="text/javascript">
+
             function GetFileName() {
-                document.getElementById("btncancle").style.display = "none";
-                document.getElementById("btnPDF").style.display = "none";
-                var fileSaveName = '<%= lblPartyName.Text.ToString().Trim() + " " + lbldate.Text.ToString().Trim() %>';
-                document.title = fileSaveName;
-                window.print();
-                document.getElementById("btnPDF").style.display = "";
-                document.getElementById("btncancle").style.display = "";
+                if ('<%= Session["UserID"] %>' == "1") {
+                    document.getElementById("btncancle").style.display = "none";
+                    document.getElementById("btnPDF").style.display = "none";
+                    var fileSaveName = '<%= lblPartyName.Text.ToString().Trim() + " " + lbldate.Text.ToString().Trim() %>';
+                    document.title = fileSaveName;
+                    window.print();
+                    document.getElementById("btnPDF").style.display = "";
+                    document.getElementById("btncancle").style.display = "";
+                }
+
+                else {
+                        document.getElementById('lblerror').innerHTML = 'You are not Admin !!!';
+                }
+                
             }
+
+
 
             function GotoList() {
                 window.location.href = "../BillTeam/BillTeamGridViewList.aspx";
@@ -96,6 +106,9 @@
             <input runat="server" id="btnPDF" type="button" class="button right-btn" value="PDF Download" onclick="GetFileName()" />
             <br />
             <br />
+            <br />
+            <br />
+            <label id="lblerror" runat="server" style="color: red; padding-left:20px;"></label>
             <br />
             <br />
             <br />

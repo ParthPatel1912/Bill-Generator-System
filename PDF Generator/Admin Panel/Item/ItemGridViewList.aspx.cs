@@ -23,7 +23,7 @@ public partial class PDF_Generator_Admin_Panel_Item_ItemGridViewList : System.We
             if (Request.QueryString["CategoryID"] != null)
             {
                 SearchCategoryNameByCategoryID();
-                lblCategoryName.Text = "Select &nbsp;item &nbsp;from " + Session["CategoryName"].ToString().Trim() + " ....";
+                lblCategoryName.Text = "Select item from " + Session["CategoryName"].ToString().Trim() + " ....";
             }
 
             FillRepeterViewList();

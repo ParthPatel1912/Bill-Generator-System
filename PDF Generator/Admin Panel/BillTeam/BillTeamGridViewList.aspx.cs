@@ -161,7 +161,7 @@ public partial class PDF_Generator_Admin_Panel_BillTeam_BillTeamGridViewList : S
                 Response.Buffer = true;
                 Response.Charset = "";
                 Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                Response.AddHeader("content-disposition", "attachment;filename=Download.xlsx");
+                Response.AddHeader("content-disposition", "attachment;filename=Bill-List.xlsx");
                 using (MemoryStream MyMemoryStream = new MemoryStream())
                 {
                     wb.SaveAs(MyMemoryStream);

@@ -165,7 +165,7 @@
 
                         <asp:TemplateField HeaderStyle-BorderColor="#ff00ff" HeaderStyle-BackColor="RosyBrown" ItemStyle-CssClass="text-center" HeaderStyle-Font-Italic="true">
                             <ItemTemplate>
-                                <asp:ImageButton ImageUrl="~/PDF Generator/Content/img/download.png" Width="50" ID="btnDownload" runat="server" Text="Download" CommandName="Download" CommandArgument='<%# "~/PDF Generator/Admin Panel/PDF Bill/PDF Bill.aspx?BillTeamID=" + Eval("BillTeamID").ToString().Trim() %>' AlternateText="Download"/>
+                                <asp:ImageButton ImageUrl="~/PDF Generator/Content/img/download.png" Width="50" ID="btnDownload" runat="server" Text="Download" CommandName="Download" CommandArgument='<%# "~/PDF Generator/Admin Panel/PDF Bill/Bill.aspx?BillTeamID=" + Eval("BillTeamID").ToString().Trim() %>' AlternateText="Download"/>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

@@ -147,4 +147,11 @@ public partial class PDF_Generator_Admin_Panel_CreateAccount : System.Web.UI.Pag
             lblErrorMessage.Text = "Confirm password is not matched with password..?";
     }
     #endregion Create Button Event
+
+    #region Login button event
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PDF Generator/Admin Panel/Login.aspx");
+    }
+    #endregion
 }

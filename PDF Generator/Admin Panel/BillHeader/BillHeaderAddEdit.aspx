@@ -14,7 +14,8 @@
     <li class="breadcrumb-item" style="float: left;">
         <a href="../Home/Home.aspx"><i class="feather icon-home"></i></a>
     </li>
-    <li class="breadcrumb-item" style="float: left;"><a href="BillHeaderGridViewList.aspx">Bill Header List</a> </li>
+    <li class="breadcrumb-item" style="float: left;"><a href="BillHeaderGridViewList.aspx">Bill Header List</a></li>
+    <li class="breadcrumb-item" style="float: left;"><a href="BillHeaderAddEdit.aspx">Bill Header Add-Edit</a> </li>
 
 </asp:Content>
 
@@ -113,8 +114,8 @@
                 <div class="col-md-4">
                     Payment Status
                 </div>
-                <div class="col-md-4 text-center radio-toolbar">
-                    <asp:RadioButton ID="rbPending" runat="server" CssClass="radio" GroupName="PaymentStatus" Text="Pending" Checked="True" />
+                <div class="col-md-4 text-left radio-toolbar">
+                    <asp:RadioButton ID="rbPending" runat="server" CssClass="radio" GroupName="PaymentStatus" Text="Pending" Checked="True" />&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:RadioButton ID="rbPaid" runat="server" GroupName="PaymentStatus" Text="Paid" />
                 </div>
             </div>
@@ -122,10 +123,10 @@
             <div class="row pt-4">
                 <div class="col-md-4">
                 </div>
-                <div class="col-md-4">
-                    <asp:Button Text="  Save  " ID="btnSave" runat="server" CssClass="btn btn-info left-btn" EnableViewState="false" ValidationGroup="Save" OnClick="btnSave_Click" />
-
-                    <asp:Button Text=" Cancel " ID="btnCancle" runat="server" CssClass="btn btn-danger right-btn" OnClick="btnCancle_Click" />
+                <div class="col-md-4 text-left">
+                    <asp:Button Text="  Save  " ID="btnSave" runat="server" CssClass="btn btn-info" EnableViewState="false" ValidationGroup="Save" OnClick="btnSave_Click" />
+                    <a style="padding-left:20px" />
+                    <asp:Button Text=" Cancel " ID="btnCancle" runat="server" CssClass="btn btn-danger" OnClick="btnCancle_Click" />
                 </div>
             </div>
 

@@ -125,6 +125,9 @@ public partial class PDF_Generator_Admin_Panel_ForgetPassword : System.Web.UI.Pa
                 Session["UserID"] = entUser.UserID.ToString().Trim();
 
             lblErrorMessage.Text = "Data found successfully.......";
+
+            txtMobileNo.Text = "";
+            txtUserName.Text = "";
         }
 
         if (entUser.UserID.IsNull && entUser.UserName.IsNull && entUser.Password.IsNull && entUser.MobileNo.IsNull)
@@ -236,4 +239,18 @@ public partial class PDF_Generator_Admin_Panel_ForgetPassword : System.Web.UI.Pa
         #endregion
     }
     #endregion Change Button Event
+
+    #region Create account Button Event
+    protected void btnCreateAccount_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PDF Generator/Admin Panel/CreateAccount.aspx");
+    }
+    #endregion
+
+    #region Delete account Button Event
+    protected void btnDeleteAccount_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PDF Generator/Admin Panel/DeleteAccount.aspx");
+    }
+    #endregion
 }

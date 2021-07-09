@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PDF Generator/Content/AdminPanel.master" AutoEventWireup="true" CodeFile="UserProfileEdit.aspx.cs" Inherits="PDF_Generator_Admin_Panel_User_Profile_UserProfileEdit" %>
+﻿<%@ Page Title="Edit Profile" Language="C#" MasterPageFile="~/PDF Generator/Content/AdminPanel.master" AutoEventWireup="true" CodeFile="UserProfileEdit.aspx.cs" Inherits="PDF_Generator_Admin_Panel_User_Profile_UserProfileEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
 </asp:Content>

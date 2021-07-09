@@ -30,16 +30,6 @@
     <link rel="stylesheet" type="text/css" href="<%=ResolveClientUrl("~/PDF Generator/Content/Content_Login/css/main.css")%>" />
 
     <style type="text/css">
-        .width {
-            width: 92% !important;
-            font-family: Poppins-Regular;
-            font-size: 15px;
-            color: #555;
-            line-height: 2.7;
-            background: 0 0;
-            padding: 0 5px
-        }
-
         .body {
             margin:0px;
             padding:0px;
@@ -56,7 +46,7 @@
             <div class="container-login100">
                 <div class="wrap-login100">
                     <div class="login100-form-title" style="background-image: url(<%=ResolveClientUrl("~/PDF Generator/Content/Content_Login/images/bg-01.jpg); ")%>">
-                        <span class="login100-form-title-1">Sign Up
+                        <span class="login100-form-title-1">Billing System <br /> Sign Up
                         </span>
                     </div>
                     <div class="login100-form validate-form">
@@ -138,8 +128,8 @@
                                 <asp:HyperLink runat="server" ID="hlForgetPassword" Text="Forget Password?" NavigateUrl="~/PDF Generator/Admin Panel/ForgetPassword.aspx"></asp:HyperLink>
                             </div>
                         </div>
-                        <div class="container-login100-form-btn">
-                            <asp:Button runat="server" ID="btnCreate" Text="  Create  " CssClass="login100-form-btn" Style="background-color: #4649b8;" ValidationGroup="save" OnClick="btnCreate_Click" />
+                        <div class="container-login100-form-btn row-cols-1 col-md-12">
+                            <asp:Button runat="server" ID="btnCreate" Text="  Create  " CssClass="login100-form-btn-signup" ValidationGroup="save" OnClick="btnCreate_Click" />
                             <%--<button class="login100-form-btn">
                                 Login
                             </button>--%>
@@ -147,8 +137,12 @@
                                 Sign Up
                             </button>--%>
                         </div>
-                        <div style="padding-top: 20px;">
-                            <asp:HyperLink runat="server" ID="hlAlreadyMember" Text="Already Member" NavigateUrl="~/PDF Generator/Admin Panel/Login.aspx"></asp:HyperLink><br />
+                        <div style="padding-top: 20px; width:100% !important">
+                             <hr style="border:0.1px solid gray" />
+                        </div>
+
+                        <div style="padding-top: 20px;" class="container-login100-form-btn row-cols-1 col-md-12">
+                            <asp:Button runat="server" ID="btnLogin" Text="Already Member" CssClass="login100-form-btn col-md-4" ValidationGroup="createaccount" OnClick="btnLogin_Click" />
                         </div>
                     </div>
                 </div>

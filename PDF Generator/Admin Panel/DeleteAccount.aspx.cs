@@ -192,4 +192,11 @@ public partial class PDF_Generator_Admin_Panel_DeleteAccount : System.Web.UI.Pag
 
     }
     #endregion For Check User is valid or not
+
+    #region Cancel delete account event
+    protected void btnCancelDeleteAccount_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PDF Generator/Admin Panel/Login.aspx");
+    }
+    #endregion
 }

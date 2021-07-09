@@ -15,7 +15,7 @@
         <a href="../Home/Home.aspx"><i class="feather icon-home"></i></a>
     </li>
     <li class="breadcrumb-item" style="float: left;"><a href="ItemGridViewList.aspx">Item List</a> </li>
-    <li class="breadcrumb-item" style="float: left;"><a href="ItemAddEdit.aspx">Item List Add-Edit</a></li>
+    <li class="breadcrumb-item" style="float: left;"><a href="ItemAddEdit.aspx">Item Add-Edit</a></li>
 
 </asp:Content>
 
@@ -83,7 +83,7 @@
                 <div class="col-md-4">
                     Item Photo
                 </div>
-                <div class="col-md-4 text-left">
+                <div class="col-md-4 text-center">
                     <asp:FileUpload ID="fuPhoto" runat="server" />
                     <asp:RequiredFieldValidator ID="rfvPhoto" runat="server" ErrorMessage="Upload Photo" ControlToValidate="fuPhoto" ValidationGroup="Save" SetFocusOnError="true" ForeColor="Red" CssClass="alert-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
@@ -92,10 +92,10 @@
             <div class="row pt-4">
                 <div class="col-md-4">
                 </div>
-                <div class="col-md-4 text-center">
-                    <asp:Button Text="  Save  " ID="btnSave" runat="server" CssClass="btn btn-info left-btn" EnableViewState="false" ValidationGroup="Save" OnClick="btnSave_Click" />
-
-                    <asp:Button Text=" Cancel " ID="btnCancle" runat="server" CssClass="btn btn-danger right-btn" OnClick="btnCancle_Click" />
+                <div class="col-md-4 text-left">
+                    <asp:Button Text="  Save  " ID="btnSave" runat="server" CssClass="btn btn-info" EnableViewState="false" ValidationGroup="Save" OnClick="btnSave_Click" />
+                    <a style="padding-left:20px" />
+                    <asp:Button Text=" Cancel " ID="btnCancle" runat="server" CssClass="btn btn-danger" OnClick="btnCancle_Click" />
                 </div>
             </div>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PDF Generator/Content/AdminPanel.master" AutoEventWireup="true" CodeFile="UserProfile.aspx.cs" Inherits="PDF_Generator_Admin_Panel_User_Profile_UserProfile" %>
+﻿<%@ Page Title="User Profile" Language="C#" MasterPageFile="~/PDF Generator/Content/AdminPanel.master" AutoEventWireup="true" CodeFile="UserProfile.aspx.cs" Inherits="PDF_Generator_Admin_Panel_User_Profile_UserProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
 </asp:Content>
@@ -23,6 +23,12 @@
 </asp:Content>
 
 <asp:Content ID="Content6" ContentPlaceHolderID="cphPageContent" runat="Server">
+
+    <style type="text/css">
+        .txtPassword{
+            width: 85px;
+        }
+    </style>
 
     <div class="row">
         <div class="col-lg-12">
@@ -63,10 +69,10 @@
         <div class="card-block">
             <div class="view-info">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-6 col-lg-12">
                         <div class="general-info">
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-md-6 col-lg-12">
                                     <div class="table-responsive">
                                         <table class="table m-0">
                                             <tbody>
@@ -87,7 +93,7 @@
                                                     <th scope="row">Password
                                                     </th>
                                                     <td>
-                                                        <asp:TextBox runat="server" ID="txtPassord" ReadOnly="true" BorderStyle="None" TextMode="Password" />
+                                                        <asp:TextBox runat="server" ID="txtPassword" CssClass="txtPassword" ReadOnly="true" BorderStyle="None" TextMode="Password" />
                                                         <asp:LinkButton ID="btnEyeImg" runat="server" CssClass="fa fa-eye" OnClick="btnEyeImg_Click" />
                                                     </td>
                                                 </tr>

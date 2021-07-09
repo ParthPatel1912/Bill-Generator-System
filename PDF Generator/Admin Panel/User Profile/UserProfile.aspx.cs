@@ -44,7 +44,7 @@ public partial class PDF_Generator_Admin_Panel_User_Profile_UserProfile : System
             lblMobileNo.Text= entUser.MobileNo.ToString().Trim();
 
         if (!entUser.Password.IsNull)
-            txtPassord.Attributes["value"] = entUser.Password.ToString().Trim();
+            txtPassword.Attributes["value"] = entUser.Password.ToString().Trim();
     }
 
     #endregion
@@ -59,15 +59,15 @@ public partial class PDF_Generator_Admin_Panel_User_Profile_UserProfile : System
     #region Eye Button Event
     protected void btnEyeImg_Click(object sender, EventArgs e)
     {
-        if (txtPassord.TextMode == TextBoxMode.Password)
+        if (txtPassword.TextMode == TextBoxMode.Password)
         {
-            txtPassord.TextMode = TextBoxMode.SingleLine;
+            txtPassword.TextMode = TextBoxMode.SingleLine;
             btnEyeImg.CssClass = "fa fa-eye-slash";
         }
 
         else
         {
-            txtPassord.TextMode = TextBoxMode.Password;
+            txtPassword.TextMode = TextBoxMode.Password;
             btnEyeImg.CssClass = "fa fa-eye";
         }
     }
