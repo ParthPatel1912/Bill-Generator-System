@@ -130,9 +130,9 @@
  <li> When You login as user you find home screen. In this your detailes are display.</li>
  <li>left side is menu bar in these find link of different page.</li>
  </ul>
- <img src="https://github.com/RishitKundariya/WholeSaleManagementSystem/blob/main/Image/User_Home.png" class="img-fluid"> <br>
- <b> when you click on change password you will find below page in this you have to enter old password and new password and click on save button.</b><br>
- <img src="https://github.com/RishitKundariya/WholeSaleManagementSystem/blob/main/Image/User_Change_Password.png" class="img-fluid"> 
+ <img src="https://github.com/ParthPatel1912/Bill-Generator-System/blob/main/Image/user%20details.png" class="img-fluid"> <br>
+ <li> When you click on tpo of right <b> Edit button </b> you will find below page in this you have to change name, mobile number, password, profile photo and click on save button.</li><br>
+ <img src="https://github.com/ParthPatel1912/Bill-Generator-System/blob/main/Image/user%20edit.png" class="img-fluid"> 
  <hr>
    <h3>User Page </h3>
  <ul>
