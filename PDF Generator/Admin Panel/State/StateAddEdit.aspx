@@ -74,7 +74,7 @@
                     Country
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control text-center" />
+                    <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control text-left" />
                     <asp:RequiredFieldValidator ID="rfvCountryName" runat="server" ErrorMessage="Select Country" ControlToValidate="ddlCountry" CssClass="alert-danger" ForeColor="Red" Display="Dynamic" InitialValue="-1" ValidationGroup="Save" SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </div>
             </div>

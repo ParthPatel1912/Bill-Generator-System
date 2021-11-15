@@ -74,7 +74,7 @@
                     Category Name
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control text-center" />
+                    <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control text-left" />
                     <asp:RequiredFieldValidator ID="rfvCategoryName" runat="server" ErrorMessage="Select Category" ControlToValidate="ddlCategory" CssClass="alert-danger" ForeColor="Red" Display="Dynamic" InitialValue="-1" ValidationGroup="Save" SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </div>
             </div>

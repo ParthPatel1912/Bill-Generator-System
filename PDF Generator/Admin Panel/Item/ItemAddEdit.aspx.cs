@@ -291,6 +291,9 @@ public partial class PDF_Generator_Admin_Panel_Item_ItemAddEdit : System.Web.UI.
 
         if (!entItem.ItemName.IsNull)
             txtItemName.Text = entItem.ItemName.ToString().Trim();
+
+        if (!entItem.CategoryID.IsNull)
+            ddlCategory.SelectedValue = entItem.CategoryID.ToString().Trim();
     }
     #endregion Fill Data from Database
 }

@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                            <span class="label-input100">Username</span>
+                            <span class="label-input100">Profile Picture</span>
                             <asp:FileUpload ID="fuProfile" runat="server"/>
                             <asp:RequiredFieldValidator ID="rfvPhoto" runat="server" ErrorMessage="Upload Photo" ControlToValidate="fuProfile" ValidationGroup="save" SetFocusOnError="true" ForeColor="Red" CssClass="alert-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                             <%--<input class="input100" type="text" name="username" placeholder="Enter username" />--%>

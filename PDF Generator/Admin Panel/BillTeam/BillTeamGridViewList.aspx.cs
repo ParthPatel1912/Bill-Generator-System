@@ -22,10 +22,41 @@ public partial class PDF_Generator_Admin_Panel_BillTeam_BillTeamGridViewList : S
         {
             if (Session["UserID"] == null)
                 Response.Redirect("~/PDF Generator/Admin Panel/Login.aspx");
-            FillGridViewList();
+
+            if (Request.QueryString["PartyID"] != null)
+            {
+                SearchPartyNameByPartyID();
+                FillGridViewListByPartyID();
+                lblParty.Text = "All details of all Entered Bill of - " + Session["PartyNameBill"].ToString();
+            }
+            else
+            {
+                FillGridViewList();
+                lblParty.Text = "All details of all Enterd Bill";
+            }
         }
     }
     #endregion Page Load Event
+
+    #region Search PartyName By PartyID
+    private void SearchPartyNameByPartyID()
+    {
+        #region Open connection
+
+        PartyBAL balParty = new PartyBAL();
+        PartyENT entParty = new PartyENT();
+
+        entParty = balParty.SelectByPK(Convert.ToInt32(Request.QueryString["PartyID"].ToString().Trim()));
+
+        if (entParty != null)
+        {
+            if (!entParty.PartyName.IsNull)
+                Session["PartyNameBill"] = entParty.PartyName.ToString().Trim();
+        }
+
+        #endregion
+    }
+    #endregion Search PartyName By PartyID in session
 
     #region Fill Grid View List from Database
     private void FillGridViewList()
@@ -73,6 +104,39 @@ public partial class PDF_Generator_Admin_Panel_BillTeam_BillTeamGridViewList : S
 
         else
             dtBillTeam = balBillTeam.SelectAllForGridViewByUserID(Convert.ToInt32(Session["UserID"].ToString().Trim()));
+
+        if (dtBillTeam != null && dtBillTeam.Rows.Count > 0)
+        {
+            gvBillTeam.DataSource = dtBillTeam;
+            gvBillTeam.DataBind();
+
+            foreach (GridViewRow row in gvBillTeam.Rows)
+            {
+                if (String.Equals(row.Cells[7].Text.ToString(), "Paid"))
+                {
+                    row.Cells[7].BackColor = Color.FromName("#228b22");
+                }
+                else
+                {
+                    row.Cells[7].BackColor = Color.FromName("#D2042D");
+                    row.Cells[7].ForeColor = Color.White;
+                }
+            }
+        }
+    }
+    #endregion Fill Grid View List from Database
+
+    #region Fill Grid View List from Database By PartyID
+    private void FillGridViewListByPartyID()
+    {
+        BillTeamBAL balBillTeam = new BillTeamBAL();
+        DataTable dtBillTeam = new DataTable();
+
+        if (Session["UserID"].ToString().Trim() == "1")
+            dtBillTeam = balBillTeam.SelectAllForGridViewByPartyID(Convert.ToInt32(Request.QueryString["PartyID"].ToString().Trim()));
+
+        else
+            dtBillTeam = balBillTeam.SelectAllForGridViewByUserIDPartyId(Convert.ToInt32(Session["UserID"].ToString().Trim()), Convert.ToInt32(Request.QueryString["PartyID"].ToString().Trim()));
 
         if (dtBillTeam != null && dtBillTeam.Rows.Count > 0)
         {
@@ -149,25 +213,48 @@ public partial class PDF_Generator_Admin_Panel_BillTeam_BillTeamGridViewList : S
     {
         BillTeamBAL balBillTeam = new BillTeamBAL();
         DataTable dt = null;
+
         try
         {
-            dt = balBillTeam.SelectAllForGridView();
+            if (Request.QueryString["PartyID"] != null)
+                dt = balBillTeam.SelectAllForGridViewByPartyID(Convert.ToInt32(Request.QueryString["PartyID"].ToString().Trim()));
+            else
+                dt = balBillTeam.SelectAllForGridView();
 
-            using (XLWorkbook wb = new XLWorkbook())
+            if (dt.Rows.Count == 0)
             {
-                wb.Worksheets.Add(dt, "BillBook");
+                lblError.Text = "Data is Empty!! So you can not Download Excel file.";
 
-                Response.Clear();
-                Response.Buffer = true;
-                Response.Charset = "";
-                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                Response.AddHeader("content-disposition", "attachment;filename=Bill-List.xlsx");
-                using (MemoryStream MyMemoryStream = new MemoryStream())
+                if (Request.QueryString["PartyID"] != null)
+                    lblParty.Text = "All details of all Entered Bill of - " + Session["PartyNameBill"].ToString();
+                else
+                    lblParty.Text = "All details of all Enterd Bill";
+            }
+
+            else
+            {
+                using (XLWorkbook wb = new XLWorkbook())
                 {
-                    wb.SaveAs(MyMemoryStream);
-                    MyMemoryStream.WriteTo(Response.OutputStream);
-                    Response.Flush();
-                    Response.End();
+                    wb.Worksheets.Add(dt, "BillBook");
+
+                    Response.Clear();
+                    Response.Buffer = true;
+                    Response.Charset = "";
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+                    if (Request.QueryString["PartyID"] != null)
+                        Response.AddHeader("content-disposition", "attachment;filename=Bill-List " + Session["PartyNameBill"].ToString() + ".xlsx");
+
+                    else
+                        Response.AddHeader("content-disposition", "attachment;filename=Bill-List.xlsx");
+
+                    using (MemoryStream MyMemoryStream = new MemoryStream())
+                    {
+                        wb.SaveAs(MyMemoryStream);
+                        MyMemoryStream.WriteTo(Response.OutputStream);
+                        Response.Flush();
+                        Response.End();
+                    }
                 }
             }
         }

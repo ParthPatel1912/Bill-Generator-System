@@ -118,7 +118,14 @@
             <div class="table-responsive">
                 <asp:GridView ID="gvParty" runat="server" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="false" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" OnRowCommand="gvParty_RowCommand">
                     <Columns>
-                        <asp:BoundField DataField="PartyName" HeaderText="Name" HeaderStyle-BorderColor="#ff00ff" HeaderStyle-BackColor="RosyBrown" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Italic="true" />
+
+                        <asp:TemplateField HeaderStyle-BorderColor="#ff00ff" HeaderText="Party Name" HeaderStyle-BackColor="RosyBrown" ItemStyle-Font-Bold="true" ItemStyle-Font-Underline="true" HeaderStyle-Font-Italic="true">
+                            <ItemTemplate>
+                                <asp:HyperLink ID="PartyName" runat="server" Text='<%# Eval("PartyName") %>' NavigateUrl='<%# "~/PDF Generator/Admin Panel/BillTeam/BillTeamGridViewList.aspx?PartyID=" + Eval("PartyID").ToString().Trim() %>' />                                
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <%--<asp:BoundField DataField="PartyName" HeaderText="Name" HeaderStyle-BorderColor="#ff00ff" HeaderStyle-BackColor="RosyBrown" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Italic="true" />--%>
                         <asp:BoundField DataField="PartyMobileNumber" HeaderText="Mobile Number" HeaderStyle-BorderColor="#ff00ff" HeaderStyle-BackColor="RosyBrown" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Italic="true" />
                         <asp:BoundField DataField="CityName" HeaderText="City" HeaderStyle-BorderColor="#ff00ff" HeaderStyle-BackColor="RosyBrown" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Italic="true" />
 

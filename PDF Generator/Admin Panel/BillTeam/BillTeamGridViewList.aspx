@@ -18,7 +18,7 @@
 </asp:Content>
 
 <asp:Content ID="Content6" ContentPlaceHolderID="cphCardTitle" runat="Server">
-    All details of all Entered Bill
+    <asp:Label ID="lblParty" runat="server" EnableViewState="false" ForeColor="#272727" />
 
 </asp:Content>
 
@@ -135,7 +135,7 @@
             <div class="col-md-12 text-right pb-5">
                 <asp:Button ID="btnExcelFile" runat="server" CssClass="button" Text="Excel File" OnClick="btnExcelFile_Click" />
             </div>
-            
+
             <div class="dt-responsive table-responsive">
                 <asp:GridView ID="gvBillTeam" runat="server" CssClass="table table-striped table-hover table-bordered nowrap" AutoGenerateColumns="false" BackColor="White" BorderColor="#E7E7FF" OnRowDataBound="gvBillTeam_RowDataBound" OnRowCommand="gvBillTeam_RowCommand">
                     <Columns>
@@ -165,7 +165,7 @@
 
                         <asp:TemplateField HeaderStyle-BorderColor="#ff00ff" HeaderStyle-BackColor="RosyBrown" ItemStyle-CssClass="text-center" HeaderStyle-Font-Italic="true">
                             <ItemTemplate>
-                                <asp:ImageButton ImageUrl="~/PDF Generator/Content/img/download.png" Width="50" ID="btnDownload" runat="server" Text="Download" CommandName="Download" CommandArgument='<%# "~/PDF Generator/Admin Panel/PDF Bill/Bill.aspx?BillTeamID=" + Eval("BillTeamID").ToString().Trim() %>' AlternateText="Download"/>
+                                <asp:ImageButton ImageUrl="~/PDF Generator/Content/img/download.png" Width="50" ID="btnDownload" runat="server" Text="Download" CommandName="Download" CommandArgument='<%# "~/PDF Generator/Admin Panel/PDF Bill/Bill.aspx?BillTeamID=" + Eval("BillTeamID").ToString().Trim() %>' AlternateText="Download" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

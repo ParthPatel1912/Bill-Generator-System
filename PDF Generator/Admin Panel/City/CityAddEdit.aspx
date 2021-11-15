@@ -74,7 +74,7 @@
                     State
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control text-center" />
+                    <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control text-left" />
                     <asp:RequiredFieldValidator ID="rfvStateName" runat="server" ErrorMessage="Select State" ControlToValidate="ddlState" CssClass="alert-danger" ForeColor="Red" Display="Dynamic" InitialValue="-1" ValidationGroup="Save" SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </div>
             </div>

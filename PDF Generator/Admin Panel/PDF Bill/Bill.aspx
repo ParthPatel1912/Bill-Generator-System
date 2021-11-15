@@ -77,7 +77,27 @@
                     document.getElementById("btncancle").style.display = "none";
                     document.getElementById("btnPDF").style.display = "none";
                     var fileSaveName = '<%= lblPartyName.Text.ToString().Trim() + " " + lbldate.Text.ToString().Trim() %>';
-                    document.title = fileSaveName;
+                    document.title = fil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    eSaveName;
                     window.print();
                     document.getElementById("btnPDF").style.display = "";
                     document.getElementById("btncancle").style.display = "";

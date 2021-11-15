@@ -85,7 +85,7 @@
                     Country
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" />
+                    <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control text-left" AutoPostBack="true" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" />
                     <asp:RequiredFieldValidator ID="rfvCountryName" runat="server" ErrorMessage="Select Country" ControlToValidate="ddlCountry" CssClass="alert-danger" ForeColor="Red" Display="Dynamic" InitialValue="-1" ValidationGroup="Save" SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     State
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" />
+                    <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control text-left" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" />
                     <asp:RequiredFieldValidator ID="rfvStateName" runat="server" ErrorMessage="Select State" ControlToValidate="ddlState" CssClass="alert-danger" ForeColor="Red" Display="Dynamic" InitialValue="-1" ValidationGroup="Save" SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     City
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:DropDownList ID="ddlCity" runat="server" CssClass="form-control text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" />
+                    <asp:DropDownList ID="ddlCity" runat="server" CssClass="form-control text-left" AutoPostBack="true" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" />
                     <asp:RequiredFieldValidator ID="rfvCityName" runat="server" ErrorMessage="Select City" ControlToValidate="ddlCity" CssClass="alert-danger" ForeColor="Red" Display="Dynamic" InitialValue="-1" ValidationGroup="Save" SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </div>
             </div>
